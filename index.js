@@ -132,7 +132,7 @@ async function createFallSimBox(elementId, num) {
     // create two boxes and a ground
     let bodiesArray = []
     for(let i = 0; i < num; i++){
-        bodiesArray.push(Bodies.rectangle(Math.round(Math.random() * w), Math.round(Math.random() * 200), 20, 20))
+        bodiesArray.push(Bodies.rectangle(Math.round(Math.random() * w), Math.round(Math.random() * 200), w/h * 10 + 5, w/h * 10 + 5))
     }
 
     let i = 0;
