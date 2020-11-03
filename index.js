@@ -98,7 +98,7 @@ var myChart = new Chart(ctx, {
                 stacked: true,
                 scaleLabel: {
                     display: true,
-                    labelString: 'Year (does not follow linear progression)'
+                    labelString: 'Year'
                 },
                 ticks: {
                     min: 1960,
