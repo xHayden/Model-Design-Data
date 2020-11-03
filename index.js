@@ -4,8 +4,8 @@ output.innerHTML = slider.value;
 
 slider.oninput = function() {
     output.innerHTML = this.value;
-    let num1 = exampleDataSet['data1'][exampleDataSet['labels'].indexOf(this.value)]
-    let num2 = exampleDataSet['data2'][exampleDataSet['labels'].indexOf(this.value)]
+    let num1 = exampleDataSet['data1'][exampleDataSet['labels'].indexOf(this.value)]['y']
+    let num2 = exampleDataSet['data2'][exampleDataSet['labels'].indexOf(this.value)]['y']
     if(num1){
         Sim1.then((sim) => {
             if(sim.render.canvas){
