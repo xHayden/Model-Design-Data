@@ -49,6 +49,14 @@ exampleDataSet = {
     'data1': [5.6, 8, 14.5, 29, 53, 59.2, 65.3, 67.6, 68.6, 67.2],
     'data2': [88.1, 121.1, 151.6, 208.3, 243.5, 253.7, 251.1, 262.1, 266.8, 267.8]}
 
+for(let i = 0; i < exampleDataSet['data1'].length; i++){
+    exampleDataSet['data1'][i] = {x: exampleDataSet['labels'][i], y: exampleDataSet['data1'][i]}
+}
+for(let i = 0; i < exampleDataSet['data2'].length; i++){
+    exampleDataSet['data2'][i] = {x: exampleDataSet['labels'][i], y: exampleDataSet['data2'][i]}
+}
+
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
@@ -56,7 +64,7 @@ var myChart = new Chart(ctx, {
         labels: ['1960', '1970', '1980', '1990', '2000', '2005', '2010', '2015', '2016', '2017'],
         datasets: [{
             label: 'Recovery of U.S. municipal solid waste for recycling from 1960 to 2017',
-            data: [5.6, 8, 14.5, 29, 53, 59.2, 65.3, 67.6, 68.6, 67.2],
+            data: exampleDataSet['data1'],
             backgroundColor: [
                 'rgba(66, 135, 245, 0.2)',
             ],
@@ -67,7 +75,7 @@ var myChart = new Chart(ctx, {
         },
         {
         label: 'U.S. municipal solid waste generation from 1960 to 2017',
-            data: [88.1, 121.1, 151.6, 208.3, 243.5, 253.7, 251.1, 262.1, 266.8, 267.8],
+            data: exampleDataSet['data2'],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
             ],
@@ -84,13 +92,25 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             xAxes: [{ 
+                display: true,
+                type: 'linear',
+                
                 stacked: true,
                 scaleLabel: {
                     display: true,
                     labelString: 'Year (does not follow linear progression)'
-                }
+                },
+                ticks: {
+                    min: 1960,
+                    max: 2017,
+                    stepSize: 10,
+                },
+                
+                
+                
             }],
             yAxes: [{
+                display: true,
                 stacked: false,
                 ticks: {
                 beginAtZero: true,
@@ -98,7 +118,7 @@ var myChart = new Chart(ctx, {
                 scaleLabel: {
                     display: true,
                     labelString: 'Trash in millions of tons'
-                }
+                },
             }]
         }
     }
