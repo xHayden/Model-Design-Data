@@ -25,10 +25,16 @@
 </head>
 <body>
     <nav class="navbar navbar-dark primary-color">
-        <a class="navbar-brand" href="">Graphing Demo Thing For Design</a>
+        <a class="navbar-brand" href="">Graphing for IB Design</a>
     </nav>
+    
     <div id="sim-container">
-        <h2>Each box represents 2,000,000,000 lbs of trash</h2>
+        <div id="select-container">
+            <select name="dataset" id="dataset" onchange="selectDataset()">
+        
+            </select>
+        </div>
+        <h2 id="simTitle">Each box represents 2,000,000,000 lbs of trash</h2>
         <table>
             <tr>
                 <div id="sim">
@@ -37,8 +43,8 @@
                 </div>
             </tr>
             <tr>
-                <td><h2>Trash Recycled</h2></td>
-                <td><h2>Trash Produced</h2></td>
+                <td><h2 id="simLabel1">Trash Recycled</h2></td>
+                <td><h2 id="simLabel2">Trash Produced</h2></td>
             </tr>
         </table>
         

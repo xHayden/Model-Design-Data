@@ -30,7 +30,9 @@
   display: flex;
   justify-content: center;
 }
-
+#select-container {
+  margin-bottom: 2vw;
+}
 #slidersim {
     display: flex;
     justify-content: center;
