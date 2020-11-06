@@ -26,6 +26,20 @@ datasets = {
         "simLabel1": "Newspaper Supply",
         "simLabel2": "Newspaper Recovery",
         "simTitle": "Each box represents 2,000,000,000 lbs of newspaper"
+    },
+    "renewable-energy": {
+        "title": "Solar vs Wind Power Generation 2000-2019",
+        "min": 2000,
+        "max": 2019,
+        "labels": ["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"],
+        "label1": 'Net power generation from Wind in the United States from 2000 to 2019',
+        "label2": 'Net power generation from Solar in the United States from 2000 to 2019',
+        "data1": [{x: '2000', y: 5.593}, {x: '2001', y: 6.737}, {x: '2002', y: 10.354}, {x: '2003', y: 11.187}, {x: '2004', y: 14.144}, {x: '2005', y: 17.811}, {x: '2006', y: 26.589}, {x: '2007', y: 34.450}, {x: '2008', y: 55.363}, {x: '2009', y: 73.886}, {x: '2010', y: 94.652}, {x: '2011', y: 120.177}, {x: '2012', y: 140.822}, {x: '2013', y: 167.840}, {x: '2014', y: 181.655} ,{x: '2015', y: 190.719},{x: '2016', y: 226.993} ,{x: '2017', y: 254.303} ,{x: '2018', y: 272.650} ,{x: '2019', y: 300.071}],
+        "data2": [{x: '2000', y: 0.493}, {x: '2001', y: 0.543}, {x: '2002', y: 0.555}, {x: '2003', y: 0.534}, {x: '2004', y: 0.575}, {x: '2005', y: 0.550}, {x: '2006', y: 0.508}, {x: '2007', y: 0.612}, {x: '2008', y: 0.864}, {x: '2009', y: 0.891}, {x: '2010', y: 1.212}, {x: '2011', y: 1.818}, {x: '2012', y: 4.327}, {x: '2013', y: 9.036}, {x: '2014', y: 17.691} ,{x: '2015', y: 24.893},{x: '2016', y: 36.054} ,{x: '2017', y: 53.286} ,{x: '2018', y: 63.825} ,{x: '2019', y: 72.334}],
+        "yaxis": "Energy in million gigawatt hours",
+        "simLabel1": "Wind",
+        "simLabel2": "Solar",
+        "simTitle": "Each box represents 1 gigawatt hour of energy"
     }
 }
 
@@ -242,6 +256,8 @@ $(document).ready(function() {
     Sim2 = createFallSimBox("sim2", 88.1)
     $("#dataset").append("<option value='recycling'>Recycling Data 1970-2017</option>");
     $("#dataset").append("<option value='newspaper'>Newspaper Recycling 1993-2019</option>");
+    $("#dataset").append("<option value='renewable-energy'>Solar vs Wind Power Generation 2000-2019</option>");
+    
 });
 
 function addData(chart, label, data) {
