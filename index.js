@@ -36,14 +36,36 @@ var output = document.getElementById("demo");
 output.innerHTML = slider.value;
 
 function updateSimBox(value) {
+    currentDataset['labels'] = []
+    for(let i = 0; i < currentDataset["max"] - currentDataset["min"] + 1; i++){
+        let label = (currentDataset["min"] + i).toString()
+        currentDataset['labels'].push(label)
+        let foundLabel = false
+        for(x in currentDataset['data1']){
+            if(label == currentDataset['data1'][x]['x']){
+                foundLabel = true;
+            }
+        }
+        if(!foundLabel){
+            currentDataset['data1'].push({'x': label, 'y': undefined})
+        }
+    }
 
     try {
         let num1;
         let num2;
-        if(currentDataset['labels'].indexOf(value) > -1){
-            num1 = currentDataset['data1'][currentDataset['labels'].indexOf(value)]['y']
-            num2 = currentDataset['data2'][currentDataset['labels'].indexOf(value)]['y']
+        for(x in currentDataset['data1']){
+            if(value == currentDataset['data1'][x]['x']){
+                num1 = currentDataset['data1'][x]['y']
+            }
         }
+        for(x in currentDataset['data2']){
+            if(value == currentDataset['data2'][x]['x']){
+                num2 = currentDataset['data2'][x]['y']
+            }
+        }
+
+        
         if(num1){
             Sim1.then((sim) => {
                 
@@ -120,6 +142,7 @@ var myChart = new Chart(ctx, {
     ]
     },
     options: {
+        maintainAspectRatio: false,
         scales: {
             xAxes: [{ 
                 display: true,
@@ -149,6 +172,7 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+myChart.canvas.parentNode.style.height = 'calc(15vw + 150px)';
 
 
 async function createFallSimBox(elementId, num, sim=undefined) {
@@ -245,7 +269,6 @@ function changeChartDataset(chart, name) {
         }
     }
     
-    console.log(currentDataset['data1'])
     chart.data.labels = currentDataset["labels"]
     chart.data.datasets[0].label = currentDataset['label1']
     chart.data.datasets[1].label = currentDataset['label2']
