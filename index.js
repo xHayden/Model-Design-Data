@@ -40,6 +40,20 @@ datasets = {
         "simLabel1": "Wind",
         "simLabel2": "Solar",
         "simTitle": "Each box represents 1 gigawatt hour of energy"
+    },
+    "nonrenewable-energy": {
+        "title": "Oil vs Natural Gas Power Consumption 1965-2005",
+        "min": 1965,
+        "max": 2005,
+        "labels": ["1965","1970","1975","1980","1985","1990","1995", "2000", "2005"],
+        "label1": 'Net power consumption from Natural Gas in the United States from 1965 to 2005',
+        "label2": 'Net power consumption from Oil in the United States from 1965 to 2005',
+        "data1": [{x: '1965', y: 17}, {x: '1970', y: 21}, {x: '1975', y: 22}, {x: '1980', y: 22}, {x: '1985', y: 22}, {x: '1990', y: 23}, {x: '1995', y: 24}, {x: '2000', y: 24.5}, {x: '2005', y: 25}],
+        "data2": [{x: '1965', y: 3}, {x: '1970', y: 4}, {x: '1975', y: 5}, {x: '1980', y: 6}, {x: '1985', y: 7}, {x: '1990', y: 9}, {x: '1995', y: 10}, {x: '2000', y: 11}, {x: '2005', y: 12}],
+        "yaxis": "Mtoe in hundreds",
+        "simLabel1": "Natural Gas",
+        "simLabel2": "Oil",
+        "simTitle": "Each box represents 100 millon tonnes of oil equaivalent (100 Mtoe) (estimated)"
     }
 }
 
@@ -257,6 +271,7 @@ $(document).ready(function() {
     $("#dataset").append("<option value='recycling'>Recycling Data 1970-2017</option>");
     $("#dataset").append("<option value='newspaper'>Newspaper Recycling 1993-2019</option>");
     $("#dataset").append("<option value='renewable-energy'>Solar vs Wind Power Generation 2000-2019</option>");
+    $("#dataset").append("<option value='nonrenewable-energy'>Oil vs Gas Power Consumption 1965-2005</option>");
     
 });
 
